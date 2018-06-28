@@ -1,12 +1,13 @@
-package se.hemnet.property
+package se.hemnet.property.list
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import se.hemnet.property.R
 
-class MainActivity : AppCompatActivity() {
+class PropertyListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.property_list_activity)
     }
 }
