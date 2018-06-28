@@ -32,6 +32,7 @@ ext {
     supportVersion = '27.1.1'
     constraintLayoutVersion = '1.1.2'
     moshiVersion = '1.6.0'
+    glideVersion = '4.7.1'
 
     //test dependencies
     junitVersion = '4.12'
