@@ -13,7 +13,11 @@ import se.hemnet.property.model.Listing
  * */
 class ListingAdapter(private val listings: List<Listing>) : RecyclerView.Adapter<ListingViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ListingViewHolder(parent.inflate(R.layout.listing_item))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = with(parent) {
+        ListingViewHolder(inflate(R.layout.listing_item)) {
+            //context.startActivity()
+        }
+    }
 
     override fun onBindViewHolder(holder: ListingViewHolder, position: Int) = holder.bind(listings[position])
 

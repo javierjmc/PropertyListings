@@ -1,8 +1,11 @@
 package se.hemnet.property.model
 
+import com.squareup.moshi.JsonClass
+
 /**
  * Represents a property listing
  * */
+@JsonClass(generateAdapter = true)
 data class Listing(val listingType: String,
                    val id: String,
                    val askingPrice: String,
