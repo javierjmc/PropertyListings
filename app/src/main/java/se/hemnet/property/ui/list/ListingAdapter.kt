@@ -15,7 +15,7 @@ class ListingAdapter(private val listings: List<Listing>) : RecyclerView.Adapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = with(parent) {
         ListingViewHolder(inflate(R.layout.listing_item)) {
-            //context.startActivity()
+
         }
     }
 
