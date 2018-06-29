@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.property_list_activity.*
 import se.hemnet.property.R
+import se.hemnet.property.model.Listing
 import se.hemnet.property.viewmodel.ListingViewModel
 import se.hemnet.property.viewmodel.factory.ListingViewModelFactory
 
@@ -21,8 +22,10 @@ class PropertyListActivity : AppCompatActivity() {
 
         val factory = ListingViewModelFactory(resources)
         val listingViewModel = ViewModelProviders.of(this, factory).get(ListingViewModel::class.java)
-        listingViewModel.listings.observe(this, Observer {
-            propertyList.adapter = ListingAdapter(it ?: emptyList())
-        })
+        listingViewModel.listings.observe(this, Observer { render(it) })
+    }
+
+    private fun render(listings: List<Listing>?) {
+        propertyList.adapter = ListingAdapter(listings ?: emptyList())
     }
 }
