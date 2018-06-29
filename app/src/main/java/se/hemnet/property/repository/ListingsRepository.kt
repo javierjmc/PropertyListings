@@ -10,7 +10,9 @@ import se.hemnet.property.model.ListingResponse
 import se.hemnet.property.model.ListingTypeAdapter
 
 /**
+ * Repository for the [Listing]s.
  *
+ * @param resources Resources to fetch the raw json file from.
  * */
 class ListingsRepository(resources: Resources) {
     private val moshi = Moshi.Builder()
