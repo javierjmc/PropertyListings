@@ -35,7 +35,6 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$supportVersion"
     implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
     implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
-    implementation "org.jetbrains.anko:anko-commons:$ankoVersion"
 
     //Moshi - A modern JSON library for Android and Java.
     //See: https://github.com/square/moshi
