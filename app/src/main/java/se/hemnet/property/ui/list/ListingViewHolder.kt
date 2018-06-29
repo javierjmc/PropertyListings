@@ -1,4 +1,4 @@
-package se.hemnet.property.list
+package se.hemnet.property.ui.list
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

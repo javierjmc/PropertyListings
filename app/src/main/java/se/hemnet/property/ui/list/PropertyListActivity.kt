@@ -1,4 +1,4 @@
-package se.hemnet.property.list
+package se.hemnet.property.ui.list
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
