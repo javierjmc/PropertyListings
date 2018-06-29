@@ -9,26 +9,22 @@ import kotlinx.android.synthetic.main.listings_activity.*
 import se.hemnet.property.R
 import se.hemnet.property.extensions.viewModel
 import se.hemnet.property.model.Listing
+import se.hemnet.property.ui.BaseActivity
 import se.hemnet.property.viewmodel.ListingViewModel
 import se.hemnet.property.viewmodel.ViewState
 
 /**
  * Displays the list of listings
  * */
-class ListingsActivity : AppCompatActivity() {
+class ListingsActivity : BaseActivity() {
+    override var layoutId = R.layout.listings_activity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.listings_activity)
         viewModel<ListingViewModel>().viewState.observe(this, Observer { render(it) })
     }
 
-    /**
-     * Renders the [ViewState]
-     *
-     * @param state State to be rendered.
-     * */
-    private fun render(state: ViewState?) {
+    override fun render(state: ViewState?) {
         when (state) {
             is ViewState.Error -> {
                 errorView.apply {

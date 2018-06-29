@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.listing_item.area as dimensions
 /**
  * [ViewHolder] for each [Listing] on the list.
  * */
-class ListingViewHolder(override val containerView: View, val onClick: (Listing, Int) -> Unit) : RecyclerView.ViewHolder(containerView), LayoutContainer {
+class ListingViewHolder(override val containerView: View, val onClick: (Int) -> Unit) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
     /**
      * Binds the given listing
@@ -46,6 +46,6 @@ class ListingViewHolder(override val containerView: View, val onClick: (Listing,
                 .load(thumbnail)
                 .into(image)
 
-        containerView.setOnClickListener { onClick(this, adapterPosition) }
+        containerView.setOnClickListener { onClick(adapterPosition) }
     }
 }
