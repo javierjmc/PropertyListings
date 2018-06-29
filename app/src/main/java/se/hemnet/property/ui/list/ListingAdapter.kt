@@ -2,6 +2,7 @@ package se.hemnet.property.ui.list
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
+import android.widget.Toast
 import se.hemnet.property.R
 import se.hemnet.property.extensions.inflate
 import se.hemnet.property.model.Listing
@@ -14,8 +15,8 @@ import se.hemnet.property.model.Listing
 class ListingAdapter(private val listings: List<Listing>) : RecyclerView.Adapter<ListingViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = with(parent) {
-        ListingViewHolder(inflate(R.layout.listing_item)) {
-
+        ListingViewHolder(inflate(R.layout.listing_item)) { listing, index ->
+            Toast.makeText(context, "Selected item $index", Toast.LENGTH_SHORT).show()
         }
     }
 
