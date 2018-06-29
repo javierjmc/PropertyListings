@@ -6,7 +6,7 @@ import com.squareup.moshi.JsonClass
  * Represents a property listing
  * */
 @JsonClass(generateAdapter = true)
-data class Listing(val listingType: String,
+data class Listing(val listingType: ListingType,
                    val id: String,
                    val askingPrice: String,
                    val monthlyFee: String,
