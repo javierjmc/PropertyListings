@@ -1,8 +1,13 @@
 package se.hemnet.property.list
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import kotlinx.android.synthetic.main.property_list_activity.*
 import se.hemnet.property.R
+import se.hemnet.property.viewmodel.ListingViewModel
+import se.hemnet.property.viewmodel.factory.ListingViewModelFactory
 
 
 /**
@@ -14,6 +19,10 @@ class PropertyListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.property_list_activity)
 
-        //propertyList.adapter = ListingAdapter(it.listings)
+        val factory = ListingViewModelFactory(resources)
+        val listingViewModel = ViewModelProviders.of(this, factory).get(ListingViewModel::class.java)
+        listingViewModel.listings.observe(this, Observer {
+            propertyList.adapter = ListingAdapter(it ?: emptyList())
+        })
     }
 }

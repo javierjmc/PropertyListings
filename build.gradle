@@ -28,7 +28,7 @@ ext {
 
     //dependencies
     kotlinVersion = kotlin_version
-    lifecycleVersion = '2.0.0-alpha1'
+    lifecycleVersion = '1.1.1'
     supportVersion = '27.1.1'
     constraintLayoutVersion = '1.1.2'
     moshiVersion = '1.6.0'
