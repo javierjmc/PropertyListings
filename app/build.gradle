@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.jetbrains.kotlin.android.extensions'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion compileVersion
     defaultConfig {
         applicationId "se.hemnet.property"
-        minSdkVersion 21
-        targetSdkVersion 27
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -20,13 +20,33 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+androidExtensions {
+    experimental = true
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.android.support:recyclerview-v7:$supportVersion"
+    implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+    implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
+    implementation "com.android.support:design:$supportVersion"
+
+    //Moshi - A modern JSON library for Android and Java.
+    //See: https://github.com/square/moshi
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
+
+    //Glide - An image loading and caching library for Android focused on smooth scrolling
+    //See: https://github.com/bumptech/glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
