@@ -4,6 +4,7 @@
     <string name="area_municipality">%1$s / %2$s</string>
     <string name="living_area">%d m2</string>
     <string name="rooms">%d rum</string>
+    <string name="listing_deactivated">Borttagen före visning</string>
 
     <plurals name="days">
         <item quantity="one">%d dag</item>

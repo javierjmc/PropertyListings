@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white"
-    android:paddingEnd="8dp">
+    android:background="@android:color/white">
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,6 +26,7 @@
         android:drawableStart="@drawable/ic_house"
         android:ellipsize="end"
         android:maxLines="1"
+        android:paddingEnd="8dp"
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -41,6 +41,7 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
+        android:paddingEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/address"
@@ -73,6 +74,7 @@
         android:id="@+id/rooms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingEnd="8dp"
         android:textColor="@android:color/black"
         app:layout_constraintBaseline_toBaselineOf="@+id/area"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,9 +94,37 @@
         android:id="@+id/days"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingEnd="8dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/fee"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="20 days" />
+
+    <View
+        android:id="@+id/deactivated_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/washed_white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/deactivated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/grey"
+        android:padding="2dp"
+        android:text="@string/listing_deactivated"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/image"
+        app:layout_constraintTop_toTopOf="@+id/image"
+        tools:visibility="visible" />
 
 
 </android.support.constraint.ConstraintLayout>

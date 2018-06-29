@@ -30,6 +30,17 @@ class ListingViewHolder(override val containerView: View, val onClick: (Listing)
         fee.text = monthlyFee
         days.text = getPluralString(R.plurals.days, daysOnHemnet, daysOnHemnet)
 
+        when (listingType) {
+            "DeactivatedPropertyListing" -> {
+                deactivated_background.visibility = View.VISIBLE
+                deactivated.visibility = View.VISIBLE
+            }
+            "ActivePropertyListing" -> {
+                deactivated_background.visibility = View.GONE
+                deactivated.visibility = View.GONE
+            }
+        }
+
         Glide.with(containerView.context)
                 .load(thumbnail)
                 .into(image)
