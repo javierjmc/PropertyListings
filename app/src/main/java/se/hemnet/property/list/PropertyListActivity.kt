@@ -6,6 +6,7 @@ import com.squareup.moshi.Moshi
 import kotlinx.android.synthetic.main.property_list_activity.*
 import se.hemnet.property.R
 import se.hemnet.property.model.ListingResponse
+import se.hemnet.property.model.ListingTypeAdapter
 
 
 /**
@@ -19,7 +20,9 @@ class PropertyListActivity : AppCompatActivity() {
 
         val text = resources.openRawResource(R.raw.listings).bufferedReader().use { it.readText() }
 
-        val moshi = Moshi.Builder().build()
+        val moshi = Moshi.Builder()
+                .add(ListingTypeAdapter())
+                .build()
         val jsonAdapter = moshi.adapter(ListingResponse::class.java)
 
         jsonAdapter.fromJson(text)?.let {

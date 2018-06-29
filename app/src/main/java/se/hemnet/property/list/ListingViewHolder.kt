@@ -9,6 +9,7 @@ import se.hemnet.property.R
 import se.hemnet.property.extensions.getFormattedString
 import se.hemnet.property.extensions.getPluralString
 import se.hemnet.property.model.Listing
+import se.hemnet.property.model.ListingType
 import kotlinx.android.synthetic.main.listing_item.area as dimensions
 
 /**
@@ -31,11 +32,11 @@ class ListingViewHolder(override val containerView: View, val onClick: (Listing)
         days.text = getPluralString(R.plurals.days, daysOnHemnet, daysOnHemnet)
 
         when (listingType) {
-            "DeactivatedPropertyListing" -> {
+            ListingType.DEACTIVATED -> {
                 deactivated_background.visibility = View.VISIBLE
                 deactivated.visibility = View.VISIBLE
             }
-            "ActivePropertyListing" -> {
+            ListingType.ACTIVE -> {
                 deactivated_background.visibility = View.GONE
                 deactivated.visibility = View.GONE
             }
