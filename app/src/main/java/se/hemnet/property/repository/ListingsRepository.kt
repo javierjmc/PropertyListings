@@ -14,18 +14,20 @@ import se.hemnet.property.model.ListingTypeAdapter
  *
  * @param resources Resources to fetch the raw json file from.
  * */
-class ListingsRepository(resources: Resources) {
+open class ListingsRepository(resources: Resources?) {
     private val moshi = Moshi.Builder()
             .add(ListingTypeAdapter())
             .build()
     private val jsonAdapter = moshi.adapter(ListingResponse::class.java)
 
     private val listings = MutableLiveData<List<Listing>>().apply {
+        resources ?: return@apply
+
         val json = resources.openRawResource(R.raw.listings).bufferedReader().use { it.readText() }
         jsonAdapter.fromJson(json)?.let {
             value = it.listings
         }
     }
 
-    fun getListings(): LiveData<List<Listing>> = listings
+    open fun getListings(): LiveData<List<Listing>?> = listings
 }
